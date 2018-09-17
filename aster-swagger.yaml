@@ -1,0 +1,687 @@
+openapi: 3.0.1
+info:
+  title: Aster API 
+  description: defaultDescription
+  version: '0.1'
+tags:
+  - name: "SSL"
+    description: Operations about SSL
+  - name: "VIPs"
+    description: Operations about vips
+  - name: "Pools"
+    description: Operations about pools
+  - name: "Pool Members"
+    description: Operations about pool members
+  - name: "Nodes"
+    description: Operations about nodes
+  - name: "IRules"
+    description: Operations about irules
+  - name: "Profiles"
+    description: Operations about profiles
+servers:
+  - url: 'https://staging.aster.pearson-intl.com:8000/api/v1'
+paths:
+  /ssl:
+    get:
+      tags:
+        - SSL
+      summary: View list of SSL
+      description: View  SSL list
+      responses:
+        '200':
+          description: OK
+        '500':
+          description: Internal server error
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+  /ssl/{id}:
+    get:
+      tags:
+        - SSL
+      summary: View SSL details
+      description: View SSL by id
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: SSL ID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+        '500':
+          description: Internal server error
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+  /vips:
+    get:
+      tags:
+        - VIPs
+      summary: View list of VIPs
+      description: View VIP list
+      responses:
+        '200':
+          description: OK
+        '500':
+          description: Internal server error
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+  /vips/{id}:
+    get:
+      tags:
+        - VIPs
+      summary: View VIP details
+      description: View VIP by id
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: SSL ID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+        '500':
+          description: Internal server error
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+  '/vips/{id}/irules':
+    get:
+      tags:
+        - VIPs
+      summary: View VIP irules 
+      description: View VIP irules by id
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: VIP ID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+        '500':
+          description: Internal server error
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+  '/vips/{id}/profiles':
+    get:
+      tags:
+        - VIPs
+      summary: View VIP profiles 
+      description: View VIP profile details by id
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: VIP ID 
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+        '500':
+          description: Internal server error
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+  /pools:
+    get:
+      tags:
+        - Pools
+      summary: View list of Pools
+      description: View  pool list
+      responses:
+        '200':
+          description: OK
+        '500':
+          description: Internal server error
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+  '/pools/{id}':
+    get:
+      tags:
+        - Pools
+      summary: View Pool details 
+      description: View pool details by id
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: POOL ID 
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+        '500':
+          description: Internal server error
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+  '/pools/{id}/monitors':
+    get:
+      tags:
+        - Pools
+      summary: View Pool monitor details 
+      description: View pool monitor details by id
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: POOL ID 
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+        '500':
+          description: Internal server error
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+  '/pools/{id}/members':
+    get:
+      tags:
+        - Pools
+      summary: View Pool member details 
+      description: View all pool member details by pool id
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: POOL ID 
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+        '500':
+          description: Internal server error
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+  '/search/pools/{name}':
+    get:
+      tags:
+        - Pools
+      summary: Search pools by name
+      description: Find pools by name
+      parameters:
+        - in: path
+          name: name
+          schema:
+            type: string
+          required: true
+          description: POOL Name 
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+        '500':
+          description: Internal server error
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+  /members:
+    get:
+      tags:
+        - Pool Members
+      summary: View list of pool members 
+      description: View pool members list
+      responses:
+        '200':
+          description: OK
+        '500':
+          description: Internal server error
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+  '/members/{id}':
+    get:
+      tags:
+        - Pool Members
+      summary: View pool member details 
+      description: View pool member details by member id
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: MEMBER ID 
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+        '500':
+          description: Internal server error
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+  '/search/members/{name}':
+    get:
+      tags:
+        - Pool Members
+      summary: Search pool members by name 
+      description: Find pool members by name
+      parameters:
+        - in: path
+          name: name
+          schema:
+            type: string
+          required: true
+          description: MEMBER Name 
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+        '500':
+          description: Internal server error
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+  /nodes:
+    get:
+      tags:
+        - Nodes
+      summary: View list of nodes 
+      description: View node list
+      responses:
+        '200':
+          description: OK
+        '500':
+          description: Internal server error
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+  '/nodes/{id}':
+    get:
+      tags:
+        - Nodes
+      summary: View node details 
+      description: View node details by id
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: NODE ID 
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+        '500':
+          description: Internal server error
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+  /irules:
+    get:
+      tags:
+        - IRules
+      summary: View list of irules 
+      description: View irule list
+      responses:
+        '200':
+          description: OK
+        '500':
+          description: Internal server error
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+  '/irules/{id}':
+    get:
+      tags:
+        - IRules
+      summary: View irule details 
+      description: View irule details by id
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: MEMBER ID 
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+        '500':
+          description: Internal server error
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+  '/map/vips/{id}':
+    get:
+      tags:
+        - VIPs
+      summary: View map of VIP  
+      description: View map of VIP by id
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: VIP ID 
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+        '500':
+          description: Internal server error
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+  '/map/pools/{id}':
+    get:
+      tags:
+        - Pools
+      summary: View map of pool
+      description: View map of pool by id
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: POOL ID 
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+        '500':
+          description: Internal server error
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+  '/map/members/{id}':
+    get:
+      tags:
+        - Pool Members
+      summary: View map of pool members
+      description: View map of pool members by pool member id
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: MEMBER ID 
+      responses:
+        '200':
+          description: OK
+        '500':
+          description: Internal server error
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+  '/health/virtual/{id}':
+    get:
+      tags:
+        - VIPs
+      summary: View helath of VIP 
+      description: Check health of VIP by VIP id
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: VIP ID 
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+        '500':
+          description: Internal server error
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+  '/health/pool/{id}':
+    get:
+      tags:
+        - Pools
+      summary: View health of a pool by pool id
+      description: Check health of a pool
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: POOL ID 
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+        '500':
+          description: Internal server error
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+  '/health/pool/{id}/member/{member}':
+    get:
+      tags:
+        - Pools
+      summary: View health of a pool member 
+      description: Check health of a pool member by pool id and member id
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: POOL ID 
+        - in: path
+          name: member
+          schema:
+            type: string
+          required: true
+          description: MEMBER ID 
+          
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+        '500':
+          description: Internal server error
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+  '/health/node/{id}':
+    get:
+      tags:
+        - Nodes
+      summary: View health of a node
+      description: Check health of a node by node id
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: NODE ID 
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+        '500':
+          description: Internal server error
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+  '/profiles/{type}/{id}':
+    get:
+      tags:
+        - Profiles
+      summary: View profile details
+      description: View profile details by profile type and id
+      parameters:
+        - in: path
+          name: type
+          schema:
+            type: string
+          required: true
+          description: PROFILE TYPE 
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: PROFILE ID 
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+        '500':
+          description: Internal server error
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
