@@ -1,8 +1,9 @@
 To run swagger UI:
-    - Run npm install
-    - Copy and paste aster-swagger.yaml file inside /node_modules/swagger-ui-dist
-    - Change url parameter inside SwaggerUIBundle to "aster-swagger.yaml" as follows
-        const ui = SwaggerUIBundle({
+  -  Run npm install
+  - Copy and paste aster-swagger.yaml file inside /node_modules/swagger-ui-dist
+  - Change url parameter inside SwaggerUIBundle to "aster-swagger.yaml" as follows
+```sh
+          const ui = SwaggerUIBundle({
                 url: "aster-swagger.yaml",
                 dom_id: '#swagger-ui',
                 deepLinking: true,
@@ -15,3 +16,4 @@ To run swagger UI:
                 ],
                 layout: "StandaloneLayout"
               })
+```
